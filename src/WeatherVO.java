@@ -1,17 +1,15 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class WeatherVO 
-{
+public class WeatherVO {
 
 	private String year;
 	private List<String> tempData; // I have created list for temperature data from JAN to DEC
 	private List<String> monthName; // I have created list for month name from JAN to DEC
-	
-	public WeatherVO() 
-	{
-		tempData  =  new ArrayList<>();
-		monthName  = new ArrayList<>();
+
+	public WeatherVO() {
+		tempData = new ArrayList<>();
+		monthName = new ArrayList<>();
 		monthName.add("JAN");
 		monthName.add("FEB");
 		monthName.add("MAR");
@@ -24,31 +22,26 @@ public class WeatherVO
 		monthName.add("OCT");
 		monthName.add("NOV");
 		monthName.add("DEC");
-		
+
 	}
-	
-	public void setYear(String year)
-	{
+
+	public void setYear(String year) {
 		this.year = year;
 	}
-	
-	public void setTempData(String value)
-	{
+
+	public void setTempData(String value) {
 		tempData.add(value);
 	}
-	
-	public String getYear()
-	{
+
+	public String getYear() {
 		return year;
 	}
-	
-	public String getTemp(int i)
-	{
+
+	public String getTemp(int i) {
 		return tempData.get(i);
 	}
-	
-	public String getMonth(int i)
-	{
+
+	public String getMonth(int i) {
 		return monthName.get(i);
 	}
 }
