@@ -127,6 +127,8 @@ public class Weather {
 						data.setTempData(words[i]);
 					}
 				}
+				
+				float avg = 0.0f;
 
 				for (int j = 0; j < 12; j++) {
 					pw.write(info[0]);
@@ -136,8 +138,11 @@ public class Weather {
 					} else if (info[1].equalsIgnoreCase("Tmin")) {
 						pw.write("Min temp");
 					}
-					if (info[1].equalsIgnoreCase("Tmean")) {
+					else if (info[1].equalsIgnoreCase("Tmean")) {
 						pw.write("Mean temp");
+					}
+					else {
+						pw.write(info[1]);
 					}
 					pw.write(',');
 
@@ -146,8 +151,22 @@ public class Weather {
 					pw.write(data.getMonth(j));
 					pw.write(',');
 					pw.write(data.getTemp(j));
+					avg +=Float.valueOf(data.getTemp(j));
+					// This is to calculate Avg tempaerature in year
+					if(j == 11)
+					{
+						pw.write(',');
+						pw.write("Avg Temperature in year" );
+						pw.write(',');
+						pw.write(data.getYear());
+						pw.write(',');
+						pw.write("is");
+						pw.write(',');
+						pw.write(String.valueOf(avg/12));
+					}
 					pw.write('\n');
 				}
+				
 			}
 			reader.close();
 		} catch (FileNotFoundException e) {
